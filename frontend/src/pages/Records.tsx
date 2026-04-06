@@ -210,11 +210,11 @@ export default function Records() {
             <div className="grid grid-cols-2 gap-3">
               <div>
                 <label className="block text-xs text-slate-400 mb-1.5">Amount (₹)</label>
-                <input type="number" step="0.01" min="0" className="input" value={form.amount} onChange={(e) => setForm({ ...form, amount: e.target.value })} required />
+                <input type="number" step="0.01" min="0" className="input" value={form.amount} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setForm({ ...form, amount: e.target.value })} required />
               </div>
               <div>
                 <label className="block text-xs text-slate-400 mb-1.5">Type</label>
-                <select className="input" value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value })}>
+                <select className="input" value={form.type} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setForm({ ...form, type: e.target.value })}>
                   <option value="income">Income</option>
                   <option value="expense">Expense</option>
                 </select>
@@ -223,18 +223,18 @@ export default function Records() {
             <div className="grid grid-cols-2 gap-3">
               <div>
                 <label className="block text-xs text-slate-400 mb-1.5">Category</label>
-                <select className="input" value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })}>
+                <select className="input" value={form.category} onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setForm({ ...form, category: e.target.value })}>
                   {CATEGORIES.map((c) => <option key={c}>{c}</option>)}
                 </select>
               </div>
               <div>
                 <label className="block text-xs text-slate-400 mb-1.5">Date</label>
-                <input type="date" className="input" value={form.date} onChange={(e) => setForm({ ...form, date: e.target.value })} required />
+                <input type="date" className="input" value={form.date} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setForm({ ...form, date: e.target.value })} required />
               </div>
             </div>
             <div>
               <label className="block text-xs text-slate-400 mb-1.5">Notes (optional)</label>
-              <input type="text" className="input" value={form.notes} onChange={(e) => setForm({ ...form, notes: e.target.value })} placeholder="e.g. April salary credit" />
+              <input type="text" className="input" value={form.notes} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setForm({ ...form, notes: e.target.value })} placeholder="e.g. April salary credit" />
             </div>
             <div className="flex gap-3 pt-2">
               <button type="button" onClick={resetForm} className="btn-ghost flex-1 text-sm">Cancel</button>

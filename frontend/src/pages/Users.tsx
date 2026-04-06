@@ -40,7 +40,7 @@ export default function Users() {
     if (u.id === currentUser?.id)
       return alert("You can't deactivate yourself.");
     await usersApi.update(u.id, { isActive: !u.isActive });
-    setUsers((prev) =>
+    setUsers((prev: User[]) =>
       prev.map((x: User) =>
         x.id === u.id ? { ...x, isActive: !u.isActive } : x,
       ),
@@ -51,7 +51,7 @@ export default function Users() {
     if (u.id === currentUser?.id)
       return alert("You can't change your own role.");
     await usersApi.update(u.id, { role });
-    setUsers((prev) =>
+    setUsers((prev: User[]) =>
       prev.map((x: User) => (x.id === u.id ? { ...x, role } : x)),
     );
   };
@@ -85,7 +85,7 @@ export default function Users() {
               </tr>
             </thead>
             <tbody>
-              {users.map((u) => (
+              {users.map((u: User) => (
                 <tr
                   key={u.id}
                   className="border-b border-dark-600 last:border-0 hover:bg-dark-600/40 transition-colors"
